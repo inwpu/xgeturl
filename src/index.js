@@ -51,7 +51,7 @@ async function handleRequest(request, env, ctx) {
     }
     // Redirect root path or invalid platforms to GitHub repository
     else if (url.pathname === '/' || url.pathname === '') {
-      const HOME_PAGE_URL = 'https://hxorz.cn';
+      const HOME_PAGE_URL = 'https://inwpu.github.io';
       response = Response.redirect(HOME_PAGE_URL, 302);
     } else {
       const validation = validateRequest(request, url, config);
@@ -94,13 +94,13 @@ async function handleRequest(request, env, ctx) {
               }) || effectivePath.split('/')[1];
 
             if (!platform || !config.PLATFORMS[platform]) {
-              const HOME_PAGE_URL = 'https://hxorz.cn';
+              const HOME_PAGE_URL = 'https://inwpu.github.io';
               response = Response.redirect(HOME_PAGE_URL, 302);
             } else {
               // Check if the path only contains the platform prefix without any actual resource path
               const platformPath = `/${platform.replace(/-/g, '/')}`;
               if (effectivePath === platformPath || effectivePath === `${platformPath}/`) {
-                const HOME_PAGE_URL = 'https://hxorz.cn';
+                const HOME_PAGE_URL = 'https://inwpu.github.io';
                 response = Response.redirect(HOME_PAGE_URL, 302);
               } else {
                 // Transform URL based on platform using unified logic
